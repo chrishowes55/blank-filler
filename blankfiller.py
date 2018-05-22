@@ -1,3 +1,31 @@
+def mediummode(file, answerfile):
+    lines = file.readlines()
+    answerlines = answerfile.readlines()
+    for i in range(0, len(lines)):
+        total = 0
+        currentline = i
+        for k in range(0, len(lines[currentline].split("@"))):
+            answer = ""
+            thing = lines[currentline].split("@")[k]
+            total += 1
+            if thing[-1] == "_":
+                    answer = input(lines[currentline].split("@")[k-1].rstrip("\n").strip() + " " + answerlines[currentline].split("@")[k].rstrip("\n").strip()[0]) 
+            else:
+                answer = ";;;"
+            if answer != ";;;":
+                correct = True
+                for j in range(1, len(answer)):
+                    if len(answer) < len(answerlines[currentline].split("@")[k])-1:
+                        print("You were wrong :-(")
+                        correct = False
+                        break
+                    if answerlines[currentline].split("@")[k][j] != answer[j-1]:
+                        print("You were wrong :-(")
+                        correct = False
+                        break
+                if correct:
+                    print("You were right!")
+
 def hardmode(file, answerfile):
     lines = file.readlines()
     answerlines = answerfile.readlines()
@@ -9,22 +37,18 @@ def hardmode(file, answerfile):
             thing = lines[currentline].split("@")[k]
             total += 1
             if thing[-1] == "_":
-                    print("if if")
-                    answer = input(thing.rstrip("\n").strip() + " ") 
+                    answer = input(lines[currentline].split("@")[k-1].rstrip("\n").strip() + " ") 
             else:
-                print("else")
                 answer = ";;;"
             if answer != ";;;":
-                print("Ansy")
                 correct = True
-                print(lines[currentline].split("@"))
                 for j in range(0, len(answer)):
                     if len(answer) < len(answerlines[currentline].split("@")[k]):
-                        print("Wrong")
+                        print("You were wrong :-(")
                         correct = False
                         break
                     if answerlines[currentline].split("@")[k][j] != answer[j]:
-                        print("Wrong")
+                        print("You were wrong :-(")
                         correct = False
                         break
                 if correct:
