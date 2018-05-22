@@ -1,2 +1,4 @@
-Hello my name is @Billy@ I like legs
-Hello my name is @Willy@
+A computer is a @thing@ and we use it
+Sometimes @computers@ are wrong, but that is because @we@ are wrong
+Computers are not to be used by @Frink@
+Because he is a @silly@ woofer

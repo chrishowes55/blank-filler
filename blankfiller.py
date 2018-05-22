@@ -35,7 +35,7 @@ def easymode(file, answerfile):
                 if len(options) < 3:
                     for z in range(0, 3 - len(options)):
                         if z != currentline:
-                            options.append(answerlines[z].split("@")[k])
+                            options.append(answerlines[z].split("@")[1])
                         else:
                             options.append("Biscuits")
                 print(options)
