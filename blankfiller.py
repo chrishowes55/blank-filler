@@ -57,6 +57,9 @@ def easymode(file, answerfile):
                     print("You were right!")
                 else:
                     print("You were wrong :-(")
+            else:
+                if thing != "" and len(lines[currentline].split("@")) == k + 1:
+                    print(thing.rstrip("\n").strip())
             
 
 def mediummode(file, answerfile):
@@ -72,6 +75,8 @@ def mediummode(file, answerfile):
             if thing[-1] == "_":
                     answer = input(lines[currentline].split("@")[k-1].rstrip("\n").strip() + " " + answerlines[currentline].split("@")[k].rstrip("\n").strip()[0]) 
             else:
+                if thing != "" and len(lines[currentline].split("@")) == k + 1:
+                    print(thing.rstrip("\n").strip())
                 answer = ";;;"
             if answer != ";;;":
                 correct = True
@@ -100,6 +105,8 @@ def hardmode(file, answerfile):
             if thing[-1] == "_":
                     answer = input(lines[currentline].split("@")[k-1].rstrip("\n").strip() + " ") 
             else:
+                if thing != "" and len(lines[currentline].split("@")) == k + 1:
+                    print(thing.rstrip("\n").strip())
                 answer = ";;;"
             if answer != ";;;":
                 correct = True
@@ -116,8 +123,8 @@ def hardmode(file, answerfile):
                     print("You were right!")
 try:
     filename = input("Hello! Please enter the name of the file that you would like to use: ")
-    file = open("files/hardware.txt", "r")
-    answerfile = open("files/hardwareAnswers.txt", "r")
+    file = open("files/" + filename + ".txt", "r")
+    answerfile = open("files/" + filename + "Answers.txt", "r")
     while True:
         difficulty = int(input("What level of difficulty would you like? (1-3)"))
         if difficulty == 1:
